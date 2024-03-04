@@ -98,3 +98,8 @@
   font-weight: 700;
   cursor: pointer;
 }
+
+.gray {
+  color: #4f4f4f;
+  background: #c7c7c7;
+}
