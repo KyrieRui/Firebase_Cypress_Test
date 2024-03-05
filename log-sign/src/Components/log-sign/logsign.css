@@ -103,3 +103,14 @@
   color: #4f4f4f;
   background: #c7c7c7;
 }
+
+.SubmitButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.submit.customColor {
+  background-color: rgb(221, 180, 255);
+  color: #000000;
+  /* Add any other styles as needed */
+}

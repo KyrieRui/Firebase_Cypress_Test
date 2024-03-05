@@ -56,6 +56,10 @@ const LogSign = () => {
           Log in
         </div>
       </div>
+
+      <div className="SubmitButtonContainer">
+        <div className="submit customColor">Submit</div>
+      </div>
     </div>
   );
 };
