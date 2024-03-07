@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { auth } from "../firebase/firebase";
+import { auth } from "../../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-const SignIn = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,7 +22,7 @@ const SignIn = () => {
   return (
     <div className="sign-in-container">
       <form onSubmit={signUp}>
-        <h1>Log In</h1>
+        <h1>Create Account</h1>
         <input
           type="email"
           placeholder="Your Email"
@@ -35,10 +35,10 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Log In</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;
