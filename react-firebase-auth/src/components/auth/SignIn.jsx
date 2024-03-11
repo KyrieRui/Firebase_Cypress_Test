@@ -19,11 +19,6 @@ const SignIn = () => {
       });
   };
 
-  const userSignOut = () => {
-    setEmail(""); // 清除email状态
-    setPassword(""); // 清除password状态
-  };
-
   return (
     <div className="sign-in-container">
       <form onSubmit={signIn}>
