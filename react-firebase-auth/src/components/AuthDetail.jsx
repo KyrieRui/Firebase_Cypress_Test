@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { auth } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const AuthDetail = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -15,10 +15,32 @@ const AuthDetail = () => {
     });
 
     // 在组件卸载时清除监听器
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
-  return <div>{authUser ? <p>Signed In</p> : <p>Signed Out</p>}</div>;
+  const userSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Sign Out Success");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  return (
+    <div>
+      {authUser ? (
+        <>
+          <p>{`Signed In as ${authUser.email}`}</p>
+          <button onClick={userSignOut}>Sign Out</button>
+        </>
+      ) : (
+        <p>Signed Out</p>
+      )}
+    </div>
+  );
 };
 
 export default AuthDetail;
