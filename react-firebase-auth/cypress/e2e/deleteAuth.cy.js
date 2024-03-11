@@ -1,4 +1,5 @@
-import { getAuth, deleteUser, getUserByEmail } from "../../src/firebase";
+import { getAuth, getUserByEmail } from "../../src/firebase";
+import { deleteUser } from "../../src/components/deleteAuth";
 
 describe("SignIn Component", () => {
   it("should input email and password", () => {
@@ -19,22 +20,6 @@ describe("SignIn Component", () => {
     cy.contains(`Signed In as ${email}`).should("be.visible");
 
     // delete the user
-    cy.then(() => {
-      // get the auth object by email
-      return getUserByEmail(email).then((user) => {
-        // delete the user if it exists
-        if (user) {
-          return deleteUser(user.uid)
-            .then(() => {
-              console.log("Successfully deleted user");
-            })
-            .catch((error) => {
-              console.log("Error deleting user:", error);
-            });
-        } else {
-          console.log("User not found");
-        }
-      });
-    });
+    cy.then(() => {});
   });
 });
