@@ -12,5 +12,9 @@ describe("SignIn Component", () => {
 
     // check if the Log In button is visible
     cy.get('button[type="submit"]').eq(0).should("be.visible");
+
+    // input email and password
+    cy.get('input[type="email"]').eq(0).type("111@gmail.com");
+    cy.get('input[type="password"]').eq(0).type("password");
   });
 });
